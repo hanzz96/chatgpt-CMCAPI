@@ -25,6 +25,23 @@ export async function getCryptoPrice(symbol, slug) {
     }
 }
 
+export async function getTopNCrypto(n = 100, typeCrypto = 'all') {
+    try {
+        const response = await axios.get(`${process.env.URL_COIN_MARKET_CAP}/v1/cryptocurrency/listings/latest?start=1&limit=${n}&cryptocurrency_type=${typeCrypto}`, {
+            headers: {
+                'X-CMC_PRO_API_KEY': process.env.API_KEY_COIN_MARKET
+            },
+            params: {   
+                
+            }
+        });
+        return response;
+    } catch (error) {
+        console.error('Error fetching cryptocurrency price:', error);
+        return null;
+    }
+}
+
 /**
  * im not using this.
  * @param {} symbol 

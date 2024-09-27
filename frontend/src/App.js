@@ -97,7 +97,7 @@ const App = () => {
               </div>
             )}
             {messages.map((message, index) => (
-              <div key={index} className="flex items-center text-white mb-2">
+              <div key={index} className="flex items-center text-white mb-2" style={{whiteSpace: "pre-wrap"}}>
                 <FontAwesomeIcon
                   icon={message.sender === "user" ? faUser : faRobot}
                   className="mr-2"
